@@ -23,17 +23,17 @@
 
 ## Deployment
 
-- Building the project:
+1. Building the project:
   - Works fine right now but still a work in progress (looking for a way to build individual dependencies in docker instead of the whole thing when a single change in made)
   - Ensure all containers are stopped: docker-compose down
   - Build all containers: docker-compose up –build
   - If stopped and want to start again: docker-compose up
--	Accessing the PG-Admin window:
+2. Accessing the PG-Admin window:
   -	Once docker has finished building you can open a PG-Admin window to see your database with nice UI
   -	Open PG-Admin: go to browser and navigate to localhost:16543
   -	Enter username and password: 
-  -	Username: test@gmail.com
-  -	Password: test123!
+    - Username: test@gmail.com
+    -	Password: test123!
   -	Right click on the “Server” and click “Create new server”
   -	Get the IP Address postgres is running on
     -Open a new terminal
@@ -42,4 +42,11 @@
     -Copy that to use as “Host Address” In PG-Admin
   - Enter the following when creating the server:
     - Under General -> Name: root
+    - Under Connection:
+    - Host Name: the IP Address for postgres
+    - Port: 5432
+    - Maintenance Database: root
+    - Username: root
+    - Password: root
+
 
