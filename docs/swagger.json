@@ -1,0 +1,161 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "## Feed\nGives us details about workouts",
+        "title": "Fan fit feed service",
+        "contact": {},
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "0.1.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/v1/feed/workouts": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "Add a new workout to workout table",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Workouts"
+                ],
+                "summary": "Create a new Workout",
+                "parameters": [
+                    {
+                        "description": "Details of the new Workout",
+                        "name": "input",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/repository.Workout"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "ok",
+                        "schema": {
+                            "$ref": "#/definitions/repository.Workout"
+                        }
+                    },
+                    "500": {
+                        "description": "ok",
+                        "schema": {
+                            "$ref": "#/definitions/views.ErrView"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/workouts/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "Gets a workout by its ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Workouts"
+                ],
+                "summary": "Get Workout by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "User Email ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "$ref": "#/definitions/repository.Workout"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/views.ErrView"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/views.ErrView"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "repository.Workout": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "workoutName": {
+                    "type": "string"
+                },
+                "workoutType": {
+                    "type": "string"
+                }
+            }
+        },
+        "views.ErrView": {
+            "type": "object",
+            "properties": {
+                "detail": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "source": {
+                    "$ref": "#/definitions/views.Source"
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        },
+        "views.Source": {
+            "type": "object",
+            "properties": {
+                "parameter": {
+                    "type": "string"
+                },
+                "pointer": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

@@ -1,0 +1,105 @@
+basePath: /
+definitions:
+  repository.Workout:
+    properties:
+      id:
+        type: integer
+      workoutName:
+        type: string
+      workoutType:
+        type: string
+    type: object
+  views.ErrView:
+    properties:
+      detail:
+        type: string
+      id:
+        type: string
+      source:
+        $ref: '#/definitions/views.Source'
+      status:
+        type: integer
+    type: object
+  views.Source:
+    properties:
+      parameter:
+        type: string
+      pointer:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: |-
+    ## Feed
+    Gives us details about workouts
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Fan fit feed service
+  version: 0.1.0
+paths:
+  /v1/feed/workouts:
+    post:
+      consumes:
+      - application/json
+      description: Add a new workout to workout table
+      parameters:
+      - description: Details of the new Workout
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/repository.Workout'
+      produces:
+      - application/json
+      responses:
+        "202":
+          description: ok
+          schema:
+            $ref: '#/definitions/repository.Workout'
+        "500":
+          description: ok
+          schema:
+            $ref: '#/definitions/views.ErrView'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new Workout
+      tags:
+      - Workouts
+  /v1/workouts/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Gets a workout by its ID
+      parameters:
+      - description: User Email ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/repository.Workout'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/views.ErrView'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/views.ErrView'
+      security:
+      - ApiKeyAuth: []
+      summary: Get Workout by ID
+      tags:
+      - Workouts
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
