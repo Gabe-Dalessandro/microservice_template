@@ -5,7 +5,7 @@
 - We run a micro service oriented architecture
 - Each service is based on this template within the repo
 - Details about how its designed can be found here:
-  - https://medium.com/gdg-vit/clean-architecture-the-right-way-d83b81ecac6
+  - https://medium.com/gdg-vit/clean-architecture-the-right-way-d83b81ecac6<br><br>
 
 
 
