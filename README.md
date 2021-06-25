@@ -24,7 +24,7 @@
 ## Deployment
 
 1. Building the project:
-  - Works fine right now but still a work in progress (looking for a way to build individual dependencies in docker instead of the whole thing when a single change in made)
+    - Works fine right now but still a work in progress (looking for a way to build individual dependencies in docker instead of the whole thing when a single change in made)
   - Ensure all containers are stopped: docker-compose down
   - Build all containers: docker-compose up –build
   - If stopped and want to start again: docker-compose up
