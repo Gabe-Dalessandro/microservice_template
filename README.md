@@ -5,7 +5,7 @@
 - We run a micro service oriented architecture
 - Each service is based on this template within the repo
 - Details about how its designed can be found here:
-  - https://medium.com/gdg-vit/clean-architecture-the-right-way-d83b81ecac6<br><br>
+  - https://medium.com/gdg-vit/clean-architecture-the-right-way-d83b81ecac6<br><br><br>
 
 
 
@@ -19,7 +19,7 @@
 - Sqlc: generates extremely useful go code based on sql code
   - Mac: brew install sqlc
 - Go:  
-- Docker:
+- Docker:<br><br><br>
 
 
 
@@ -53,7 +53,7 @@
           - Password: root
 
 3. Using Swagger to Test APIs:
-    - o	Go to browser and navigate to http://localhost:8080/swagger/index.html#
+    - o	Go to browser and navigate to http://localhost:8080/swagger/index.html#<br><br><br>
 
 
 
@@ -77,7 +77,7 @@
 -	**application.go:** Creates the services, repositories (from the model layer), routers, and server. Also starts each piece as well
 -	**docker-compose.yml:** Script that automatically builds the entire Service, Postgres DB, and launches a PG-Admin screen so you have a nice UI to see database changes
 -	**dockerfile:** Script that launches everything for you
--	**makefile:** contains other build process that may help you generate different tools (i.e. swagger)
+-	**makefile:** contains other build process that may help you generate different tools (i.e. swagger)<br><br><br>
 
 
 
@@ -99,7 +99,7 @@
     -	Write SQL code within the models/tag/repository directory
     -	Then use command “sqlc compile” to ensure you wrote correct SQL code
     -	Use command: “sqlc generate” to create the go files
-    -	These files have structs and functions that can be used throughout the repo
+    -	These files have structs and functions that can be used throughout the repo<br><br><br>
 
 
 
