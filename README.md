@@ -7,8 +7,8 @@
 - Details about how its designed can be found here:
   - https://medium.com/gdg-vit/clean-architecture-the-right-way-d83b81ecac6
 
-<br>
-<br>
+
+
 ## Installation
 
 - You will need to install the following dependencies to effectively write code for this repository (note, if you are just looking to deploy the service, this step can be skipped since you will use docker)
@@ -21,8 +21,8 @@
 - Go:  
 - Docker:
 
-<br>
-<br>
+
+
 ## Deployment
 
 1. Building the project:
@@ -55,8 +55,9 @@
 3. Using Swagger to Test APIs:
     - o	Go to browser and navigate to http://localhost:8080/swagger/index.html#
 
-<br>
-<br>
+
+
+
 ## File Structure
 
 - **api:** Holds all code related to routes and endpoints. Uses code from other folders
@@ -79,8 +80,7 @@
 -	**makefile:** contains other build process that may help you generate different tools (i.e. swagger)
 
 
-<br>
-<br>
+
 ## Tool
 
 -	**Swagger:** Used to test APIs
@@ -101,8 +101,8 @@
     -	Use command: “sqlc generate” to create the go files
     -	These files have structs and functions that can be used throughout the repo
 
-<br>
-<br>
+
+
 ## Acknowledgments
 -	**Harshil Mavani:** Kickass, Business Savy CTO
 -	**Jason Gomez:** Young, Hungry and Smart developer
